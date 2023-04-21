@@ -1,0 +1,45 @@
+{
+"outbounds": [
+{
+"tag":"IP4-out", 
+"protocol": "freedom",
+"settings": {
+}
+},
+{
+"tag":"IP6-out",
+"protocol": "freedom",
+"settings": {
+"domainStrategy": "UseIPv6" 
+}
+},
+{
+"protocol":"blackhole",
+"tag":"blackhole-out"
+}
+]
+}
+
+
+{
+"outbounds": [
+{
+"tag":"IP4-out", 
+"protocol": "freedom",
+"settings": {
+}
+},
+{
+"tag":"IP6-out",
+"protocol": "freedom",
+"settings": {
+"domainStrategy": "UseIPv6" 
+}
+},
+{
+          "protocol": "freedom",
+          "settings": {},
+          "tag": "direct"
+        }
+]
+}
