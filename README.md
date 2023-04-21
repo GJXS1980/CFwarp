@@ -1,15 +1,12 @@
-### CFwarp脚本相关说明请查看[甬哥博客](https://ygkkk.blogspot.com/2022/09/gitlabcfwarpwarpwarp.html)
-### 相关说明及注意点请查看[warp系列视频说明](https://www.youtube.com/playlist?list=PLMgly2AulGG-WqPXPkHlqWVSfQ3XjHNw8)
-------------------------------------------------------------------------------------------------------------------------------
 #### vps一键脚本：
 ```
-wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh && bash CFwarp.sh
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/CFwarp.sh && bash CFwarp.sh
 ```
 ----------------------------------------------------------------------------------------------------------------------
 
 ### 多平台优选WARP对端IP脚本
 ```
-curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/endip.sh -o endip.sh && chmod +x endip.sh && ./endip.sh
+curl -sSL https://raw.githubusercontent.com/GJXS1980/CFwarp/main/point/endip.sh -o endip.sh && chmod +x endip.sh && ./endip.sh
 ```
 -------------------------------------------------------------------------------------------------------------------------
 

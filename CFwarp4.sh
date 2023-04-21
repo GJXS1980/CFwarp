@@ -2,7 +2,7 @@
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export LANG=en_US.UTF-8
 wpygV="23.4.11 V 0.9.9 "
-remoteV=`wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh | sed -n 4p | cut -d '"' -f 2`
+remoteV=`wget -qO- https://raw.githubusercontent.com/GJXS1980/CFwarp/main/CFwarp.sh | sed -n 4p | cut -d '"' -f 2`
 chmod +x /root/CFwarp.sh
 red='\033[0;31m'
 bblue='\033[0;34m'
@@ -322,7 +322,7 @@ else
 	done
 fi
 echo ${temp[@]} | sed -e 's/ /\n/g' | sort -u>/root/warpip/ip.txt
-wget -qO /root/warpip/$cpu https://gitlab.com/rwkgyg/CFwarp/raw/main/point/$cpu && chmod +x /root/warpip/$cpu
+wget -qO /root/warpip/$cpu https://raw.githubusercontent.com/GJXS1980/CFwarp/main/point/$cpu && chmod +x /root/warpip/$cpu
 cd /root/warpip
 ./$cpu >/dev/null 2>&1 &
 wait
@@ -471,7 +471,7 @@ fi
 }
 
 upcfwarp(){
-wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/CFwarp.sh
 chmod +x /root/CFwarp.sh 
 ln -sf /root/CFwarp.sh /usr/bin/cf 
 green "CFwarp安装脚本升级成功" && cf
@@ -514,7 +514,7 @@ xyz
 name=`screen -ls | grep '(Detached)' | awk '{print $1}' | awk -F "." '{print $2}'`
 [[ $name =~ "up" ]] && green "WARP在线监测启动成功" || red "WARP在线监测启动失败，查看screen是否安装成功"
 elif [[ $warptools == 3 ]]; then
-wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/wp-plus.py 
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wp-plus.py 
 sed -i "27 s/[(][^)]*[)]//g" wp-plus.py
 readp "客户端配置ID(36个字符)：" ID
 sed -i "27 s/input/'$ID'/" wp-plus.py
@@ -1216,12 +1216,12 @@ echo -e " 当前 CFwarp 脚本版本号：${bblue}${wpygV}${plain} 重置版第�
 else
 echo -e " 当前 CFwarp 脚本版本号：${bblue}${wpygV}${plain}"
 echo -e " 检测到最新 CFwarp 脚本版本号：${yellow}${remoteV}${plain}"
-echo -e " ${yellow}$(wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/version/warpV)${plain}"
+echo -e " ${yellow}$(wget -qO- https://raw.githubusercontent.com/GJXS1980/CFwarp/main/version/warpV)${plain}"
 echo -e " 可选择8进行更新\n"
 fi
 if [[ $(type -P warp-go) ]] && [[ -f '/root/CFwarp.sh' ]]; then
 loVERSION="$(/usr/local/bin/warp-go -v | sed -n 1p | awk '{print $1}' | awk -F"/" '{print $NF}')"
-wgVERSION="$(wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/version/warpgoV)"
+wgVERSION="$(wget -qO- https://raw.githubusercontent.com/GJXS1980/CFwarp/main/version/warpgoV)"
 if [ "${loVERSION}" = "${wgVERSION}" ]; then
 echo -e " 当前 WARP-GO 已安装内核版本号：${bblue}${loVERSION}${plain} ，已是最新版本"
 else
@@ -1541,9 +1541,9 @@ apt update -y;apt install iproute2 openresolv dnsutils iptables -y;apt install w
 elif [[ $release = Ubuntu ]]; then
 apt update -y;apt install iproute2 openresolv dnsutils iptables -y;apt install wireguard-tools --no-install-recommends -y			
 fi
-wget -N https://gitlab.com/rwkgyg/cfwarp/raw/main/wgcf_2.2.15_$cpu -O /usr/local/bin/wgcf && chmod +x /usr/local/bin/wgcf         
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wgcf_2.2.15_$cpu -O /usr/local/bin/wgcf && chmod +x /usr/local/bin/wgcf         
 if [[ $main -lt 5 || $minor -lt 6 ]] || [[ $vi =~ lxc|openvz ]]; then
-[[ -e /usr/bin/wireguard-go ]] || wget -N https://gitlab.com/rwkgyg/cfwarp/raw/main/wireguard-go -O /usr/bin/wireguard-go && chmod +x /usr/bin/wireguard-go
+[[ -e /usr/bin/wireguard-go ]] || wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wireguard-go -O /usr/bin/wireguard-go && chmod +x /usr/bin/wireguard-go
 fi
 echo | wgcf register
 until [[ -e wgcf-account.toml ]]
@@ -1729,7 +1729,7 @@ echo -e " 当前 CFwarp 脚本版本号：${bblue}${wpygV}${plain} 重置版第�
 else
 echo -e " 当前 CFwarp 脚本版本号：${bblue}${wpygV}${plain}"
 echo -e " 检测到最新CFwarp脚本版本号：${yellow}${remoteV}${plain}"
-echo -e " ${yellow}$(wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/version/warpV)${plain}"
+echo -e " ${yellow}$(wget -qO- https://raw.githubusercontent.com/GJXS1980/CFwarp/main/version/warpV)${plain}"
 echo -e " 可选择8进行更新\n"
 fi
 fi

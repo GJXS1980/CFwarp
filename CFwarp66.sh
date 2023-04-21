@@ -2,7 +2,7 @@
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export LANG=en_US.UTF-8
 wpygV="22.9.9 V 0.3"
-remoteV=`wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh | sed -n 4p | cut -d '"' -f 2`
+remoteV=`wget -qO- https://raw.githubusercontent.com/GJXS1980/CFwarp/main/CFwarp.sh | sed -n 4p | cut -d '"' -f 2`
 red='\033[0;31m'
 bblue='\033[0;34m'
 yellow='\033[0;33m'
@@ -470,9 +470,9 @@ apt update -y;apt install iproute2 openresolv dnsutils iptables -y;apt install w
 elif [[ $release = Ubuntu ]]; then
 apt update -y;apt install iproute2 openresolv dnsutils iptables -y;apt install wireguard-tools --no-install-recommends -y			
 fi
-wget -N https://gitlab.com/rwkgyg/cfwarp/raw/main/wgcf_2.2.15_$cpu -O /usr/local/bin/wgcf && chmod +x /usr/local/bin/wgcf         
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wgcf_2.2.15_$cpu -O /usr/local/bin/wgcf && chmod +x /usr/local/bin/wgcf         
 if [[ $main -lt 5 || $minor -lt 6 ]] || [[ $vi =~ lxc|openvz ]]; then
-[[ -e /usr/bin/wireguard-go ]] || wget -N https://gitlab.com/rwkgyg/cfwarp/raw/main/wireguard-go -O /usr/bin/wireguard-go && chmod +x /usr/bin/wireguard-go
+[[ -e /usr/bin/wireguard-go ]] || wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wireguard-go -O /usr/bin/wireguard-go && chmod +x /usr/bin/wireguard-go
 fi
 echo | wgcf register
 until [[ -e wgcf-account.toml ]]
@@ -516,7 +516,7 @@ CheckWARP && ShowWGCF && WGCFmenu && lncf
 }
 
 warprefresh(){
-wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/wp-plus.py 
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/wp-plus.py 
 sed -i "27 s/[(][^)]*[)]//g" wp-plus.py
 readp "客户端配置ID(36个字符)：" ID
 sed -i "27 s/input/'$ID'/" wp-plus.py
@@ -649,7 +649,7 @@ if [[ ! $(type -P wg-quick) && ! $(type -P warp-cli) ]] && [[ ! -f '/root/CFwarp
 red "未正常安装CFwarp脚本!" && exit
 fi
 rm -rf /root/CFwarp.sh /usr/bin/cf
-wget -N https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh
+wget -N https://raw.githubusercontent.com/GJXS1980/CFwarp/main/CFwarp.sh
 chmod +x /root/CFwarp.sh 
 ln -sf /root/CFwarp.sh /usr/bin/cf
 green "CFwarp安装脚本升级成功"
